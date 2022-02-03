@@ -45,16 +45,16 @@
 # (3) Uncomment the following if VPC data is in TF Cloud.
 #    Check your vpc infra code or TF Cloud account.
 # ------------------------------
-# data "terraform_remote_state" "networking" {
-#   backend = "remote"
-#   config = {
-#     organization = var.organization
-#     workspaces = {
-#       name = "networking-${var.environment}"
-#     }
-#   }
-# }
-#
-# locals {
-#   vpc_id = data.terraform_remote_state.networking.outputs.vpc_id
-# }
+data "terraform_remote_state" "networking" {
+  backend = "remote"
+  config = {
+    organization = var.organization
+    workspaces = {
+      name = "networking-${var.environment}"
+    }
+  }
+}
+
+locals {
+  vpc_id = data.terraform_remote_state.networking.outputs.vpc_id
+}

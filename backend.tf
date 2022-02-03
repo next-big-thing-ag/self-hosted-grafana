@@ -28,11 +28,11 @@
 # ------------------------------
 # (3) Uncomment the following if using TF Cloud and set "organization"
 # ------------------------------
-# terraform {
-#   backend "remote" {
-#     organization = "see TFC_ORG_NAME in .env"
-#     workspaces {
-#       prefix = "grafana-"
-#     }
-#   }
-# }
+terraform {
+  backend "remote" {
+    organization = "dops-nbt"
+    workspaces {
+      prefix = "grafana-"
+    }
+  }
+}
